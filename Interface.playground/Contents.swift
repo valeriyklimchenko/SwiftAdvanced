@@ -166,6 +166,7 @@ import UIKit
 //}
 //Smartphone().tapSMS()
 
+
 protocol Navigator {
 
     var enterPlace: String { get set }
