@@ -76,16 +76,35 @@ if var a, var b {
 
 var sw: Int? = Int("11")
 switch sw {
-case var 10?:
+case 10?:
     print(10)
 //case var value?:
 //    print("value \(sw)")
-case sw?:
+case var sw?:
     print("value \(sw)")
 
 case nil:
     print("error")
-break
-default:
-    print(sw)
 }
+
+//?? - оператор nill-обединения, который проверяет первый операнд на наличие значения и, если его нет, выполняет операнд после "??"
+var nillAssosiation: Int? = Int("text")
+print(nillAssosiation ?? "это не число")
+
+//Сравнение optional
+var t: Int? = Int("123")
+var boo: Bool = 1 == t
+print(boo)
+
+//Здесь нужно извлечь значение опционала (t!)
+if t != nil, t! > 10 {
+    print("t больше 10")
+}
+
+
+//Как получить число из строки(опционал)
+let d: String? = "123"
+if var d, var d = Int(d) {
+    print(d)    //Int
+}
+
