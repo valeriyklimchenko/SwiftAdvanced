@@ -46,7 +46,15 @@ o = Int("text")
 //o! += p     //Unexpectedly found nil while unwrapping an Optional value
 
     //Неявное извлечение из опционала
-var id: Int? = Int("dfkg") //nil
+var num1: Int? = Int("7")
+var num2: Int = 13
+//if var a = a {
+//    a += b
+//}
+var a = num1! + num2
+
+
+let id: Int? = Int("dfkg") //nil
 if var ourID = id {
 //    print("число \(ourID)")
     print(ourID)
@@ -54,6 +62,12 @@ if var ourID = id {
 else {
 //    print("не число \(ourID)")
 //    print("некорректное значение id")
+}
+
+if var id = id {
+    print(0 + id)
+} else {
+    print("это не целое число")
 }
 
 var a: Int? = Int("10")

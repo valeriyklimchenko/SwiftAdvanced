@@ -18,19 +18,18 @@ eleventh[0] = "name"
 eleventh
 
 //Доступ к элементам массива
-var numbers = [12, 12, 12, 14, 15]
+var numbers: [Int] = [1, 2, 3, 12, 7, 12, 7, 12]
 numbers
-numbers[0] = 11
+//numbers[0] = 11
 numbers
 
 numbers.first
 numbers.endIndex
 numbers.indices
+var ind = numbers.first
 numbers.firstIndex(of:89)
 
-numbers.removeAll(where: {n -> Bool in
-    return n == 12
-})
+numbers.removeAll(where: {n -> Bool in return n == 12 })
 numbers
 
 numbers.removeAll(where:{$0 > 30})
@@ -41,15 +40,13 @@ numbers.count
 numbers.isEmpty
 
 //Перебор массива
-for n in numbers {
-//    print(n)
-}
+for n in numbers { n }
 
-for n in 0 ..< numbers.endIndex-3 {  //numbers.count
-//    print(numbers[n])
-}
+//for n in 0 ..< numbers.endIndex-3 {  //numbers.count
+////    print(numbers[n])
+//}
 
-numbers[numbers.endIndex - 1]
+//numbers[numbers.endIndex - 1]
 
 //for i in numbers 0 ..< numbers.count {
 //    print(i)
@@ -100,6 +97,11 @@ let drop = numbers.dropFirst(3) //Удаляет без мутации, то е�
 numbers
 drop
 
+//Удаление повторяющихся значений из массива
+numbers
+Array(Set(numbers))
+
+
 //Сортировка. sort меняет в исходном массиве, sorted не меняет, а создает новый
 
 var count = [4, 65, 23, 54, 87, 23]
@@ -144,6 +146,11 @@ let stringN = numbers.map({n -> String in return String(n)
 })
 numbers
 stringN
+
+func timesTen(x: Int) -> Int { x * 10 }
+numbers
+var result = numbers.map(timesTen)
+
 
 //Многомерные массивы - массив в массиве
 var arrayArray = [[1, 2, 3], [1, 2, 3]]
