@@ -114,11 +114,23 @@ import UIKit
 //    var people: Int = 0
 //}
 //
+////С помощью протокола и методов доступа мы запретили изменение переменной
 //var busOnTheWay: Bus = CityBus()
 ////busOnTheWay.people = 10
 ////busOnTheWay.people += 10
 //print(busOnTheWay.people)
+//
+////Указали тип "class CityBus" - можно изменять переменную. Можно указать любой объкеь, реализующий протокол Bus
+//var newBus: CityBus = CityBus()
+//newBus.people = 10
+//newBus.people += 10
+//print(newBus.people)
+//
+//var ourBus: Int = CityBus().people
+//ourBus += 20
+//ourBus
 
+//Перегрузка (пример полиморфизма в ООП). Каждый метод должен полностью повторять сигнатуру
 //class Drawer {
 //
 //    func draw(_ result: Int) {
@@ -164,8 +176,12 @@ import UIKit
 //        print("Add emoji")
 //    }
 //}
-//Smartphone().tapSMS()
-
+//
+////Phone().tapSMS()
+////Smartphone().tapSMS()
+//
+//Phone().ring()
+//Smartphone().ring()
 
 protocol Navigator {
 
@@ -174,14 +190,14 @@ protocol Navigator {
 }
 
 class GoogleMaps: Navigator {
-    
+
     var enterPlace: String = "" {
         didSet {
             checkDistance = 100
         }
     }
     var checkDistance: Int = 0
-    
+
 }
 
 var googleMaps: Navigator = GoogleMaps()

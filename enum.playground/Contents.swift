@@ -1,4 +1,6 @@
-//Объявление типа
+//Перечисления - тип данных с конечными типом уникальных значений. При компиляция значения case представляются целыми числами от 0, если не определен иной RawValue тип
+//Объявление типа. enum описывает одно состояние (как radio button)
+//Перечислния не могут содержать хранимые поля
 enum ControllerState {
     case loading
     case loaded
@@ -38,20 +40,46 @@ var inna = Exemple.exemple
 
 //Associative value - значения внутри кейсов
 // - значения, ассоциированные с этим кейсом (параметры кейса)
-enum Item {
-    case sword(Int, Int)
-    case shield(Double, Int)
-}
-
-var armor = Item.shield(5, 3)
+//enum Item {
+//    case sword(Int, Int)
+//    case shield(Double, Int)
+//}
+//
+//var armor = Item.shield(5, 3)
+//
+//
+//
+//enum PaymentMetod {
+//    case cash
+//    case card(
+//        number: String,
+//        Name: String
+//    )
+//    case certificate(
+//        number: String
+//    )
+//}
+//
+//var payment = PaymentMetod.card(number: "123", Name: "Ivan")
+//
+//switch payment {
+//case .cash:
+//    print("наличные")
+//case .card(let number, let Name):
+//    print("карта \(number), \(Name)")
+//case .certificate(let number):
+//    print("сертификат \(number)")
+//}
 
 
 //Опциональный тип
 enum Name: String {
-    case dima = "Dima"
+    case dima = "Дима"
 }
 
 let name = Name.dima
+//print(name)
+//print(name.rawValue)
 
 let item = Name(rawValue: "Dima")
 //print(item)  //Expression implicitly coerced from 'Name?' to 'Any'
@@ -65,6 +93,29 @@ let vazzgen: Name? = Name(rawValue: "Vazzgen")
 //print(vazzgen ?? "nil")
 //print(vazzgen as Any)
 
+
+
+//Примеры перечислений
+
+//enum FirstName {
+//    case Irina
+//    case Misha
+//    case Ivan
+//    case Dima
+//}
+//
+//let Dima = FirstName.Irina
+//
+//switch Dima {
+//case .Irina, .Misha:
+//    fallthrough
+//    print("Ирина, Миша")
+//case .Ivan, .Dima:
+//    print("Иван, Дима")
+//}
+
+
+
 enum Country: String {
     case russia = "Russia"
     case indonesia = "Indonesia"
@@ -74,7 +125,7 @@ enum Country: String {
 let russia = Country.russia.rawValue
 //print(russia)
 //print(type(of: russia))
-//print(russia == "Indonesia")
+//print(type(of: Country.indonesia))
 
 let indonesia: Country? = Country(rawValue: "Indonesia")
 //print(indonesia)
@@ -82,6 +133,7 @@ let indonesia: Country? = Country(rawValue: "Indonesia")
 //print(indonesia ?? "error")
 //print(type(of: indonesia))
 //print(type(of: indonesia?.rawValue))
+//print(type(of: Country.indonesia))
 
 /*
 Изменил немного пример перечисления Country с прошлого вебинара. Не совсем понимаю чем отличается объявление russia и indonesia и что происходит в print после объявления indonesia (и что значит "__lldb_expr_372" в выводе).
@@ -109,7 +161,8 @@ enum Car {
 }
 
 let car = Car.mercedes(numperOfPass: 3)
-
+//print(car)
+//
 //switch car {
 //case let .mercedes(numberOfPass):
 //    print(numberOfPass)
@@ -124,11 +177,13 @@ let car = Car.mercedes(numperOfPass: 3)
 //    print("uaz")
 //}
 
-let cars = Car.uaz
-//print(cars == .uaz)     //binary operator '==' cannot be synthesized for enums with associated values
+//print(car == .uaz)     //binary operator '==' cannot be synthesized for enums with associated values
+
+//print(Country.russia == .russia)
+//print(Country.russia)
 
 //Как достать значения из перечисления без switch?
-//if case let .mercedes(pass) = car {
-//    print(pass)
-//}
+if case let .mercedes(pass) = car {
+    print(pass)
+}
 

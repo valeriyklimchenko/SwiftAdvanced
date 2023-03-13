@@ -1,10 +1,3 @@
-//
-//  объекты ООП.swift
-//
-//
-//  Created by Валерий Климченко on 10.02.2023.
-//
-
 import Foundation
 //Геттеры и сеттеры для вычисляемых свойств
 
@@ -30,6 +23,20 @@ struct Circle {
 }
 
 // Инициализация
+
+//class Materials {
+//    let brick: String
+//    let tile: String
+//    let concrete: String
+//    let steel: String
+//    init(brick: String, tile: String, concrete: String, steel: String) {
+//        self.brick = "brick"
+//        self.tile = "tile"
+//        self.concrete = "concrete"
+//        self.steel = "steel"
+//    }
+//}
+
 struct Materials {
     let brick: String
     let tile: String
@@ -48,18 +55,28 @@ class House {
     }
 }
 
-//class Weather {
-//    var wind: Bool
-//    var snow: Bool
-//    var rain: Bool
-//    init(wind: Bool, snow: Bool, rain: Bool) {}
-//}
+class Weather {
+    var wind: Bool
+    var snow: Bool
+    var rain: Bool
+    init(wind: Bool, snow: Bool, rain: Bool) {
+        self.rain = true
+        self.snow = true
+        self.wind = false
+    }
+}
+
+var MoscowWether = Weather(wind: true, snow: false, rain: false)
+
+//Композиция и агрегация
+//Агрегация?
 
 protocol ATM {
     func enterPin()
     func withdraw(sum: Double) -> Double
     var balanse: Double {get}  //только чтение
 }
+
 class PermataATM: ATM {
     var pin: Int = 0
 
@@ -83,7 +100,8 @@ class PermataATM: ATM {
 //cangguATM.withdraw(sum: <#T##Double#>)
 //cangguATM.checkBalance()
 
-//let cangguATM: ATM = PermataATM()
+//С помощью протокола можно ограничить доступ к методам класса.
+//let cangguATM: ATM = PermataATM()       //cangguATM является типом ATM
 //cangguATM.withdraw(sum: <#T##Double#>)
 //cangguATM.enterPin()
 //cangguATM.balanse
@@ -91,13 +109,14 @@ class PermataATM: ATM {
 let cangguATM: ATM = PermataATM()
 cangguATM.balanse
 cangguATM.enterPin()
-//cangguATM.withdraw(sum: <#Double#>)
+cangguATM.withdraw(sum: 1.1)
 
-//Объект
-//PermataATM()
 
-//Агрегация
-class ShoppingCentr {
+
+//Композиция
+//legalOffice создается и уничтожается одновременно с классом ShopingCenter
+
+class ShoppingCenter {
     var atm: ATM
     let legalOffice: [String]
     init(atm: ATM){
@@ -106,12 +125,10 @@ class ShoppingCentr {
     }
 }
 
+//Агрегация
 
-
-//Композиция
-//var shoppingATM: PermataATM
-//var center = ShoppingCentr(atm: shoppingATM)
-//var shoppingATM: PermataATM
+let shopingATM = PermataATM()
+let shopingCenterATM = ShoppingCenter(atm: shopingATM)      //объект использует другой без сильной ссылки. Если агрегатор ShoppingCenter() уничтожить, PermataATM() останется
 
 //Перечисления
 
