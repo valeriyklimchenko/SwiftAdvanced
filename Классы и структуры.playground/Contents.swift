@@ -12,27 +12,27 @@
 //print(tommyTask.result) //1
 
 ////Reference Type
-//class HomeWork {
-//    var task: String
-//    init(task: String) {
-//        self.task = task
-//    }
-//}
-//
-//struct Student {
-//    let answer: HomeWork
-//}
-//
-//let valueTipeTask = HomeWork(task: "Do it")
-//let annaReferenceTipeTask = Student(answer: valueTipeTask)
-//let dimaReferenceTipeTask = Student(answer: valueTipeTask)
-//
-//print(annaReferenceTipeTask.answer.task) //"Do it"
-//print(dimaReferenceTipeTask.answer.task) //"Do it"
-//
-//valueTipeTask.task = "Dont do it" //конастанта
-//print(annaReferenceTipeTask.answer.task) //"Dont do it"
-//print(dimaReferenceTipeTask.answer.task) //"Dont do it"
+class HomeWork {
+    var task: String
+    init(task: String) {
+        self.task = task
+    }
+}
+
+struct Student {
+    let answer: HomeWork
+}
+
+let valueTipeTask = HomeWork(task: "Do it")
+let annaReferenceTipeTask = Student(answer: valueTipeTask)
+let dimaReferenceTipeTask = Student(answer: valueTipeTask)
+
+print(annaReferenceTipeTask.answer.task) //"Do it"
+print(dimaReferenceTipeTask.answer.task) //"Do it"
+
+valueTipeTask.task = "Dont do it" //конастанта
+print(annaReferenceTipeTask.answer.task) //"Dont do it"
+print(dimaReferenceTipeTask.answer.task) //"Dont do it"
 
 //Мутация
 struct HomeWork {

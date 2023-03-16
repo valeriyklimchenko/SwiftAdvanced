@@ -40,7 +40,7 @@ numbers.count
 numbers.isEmpty
 
 //Перебор массива
-for n in numbers { n }
+for n in numbers { n    }
 
 //for n in 0 ..< numbers.endIndex-3 {  //numbers.count
 ////    print(numbers[n])

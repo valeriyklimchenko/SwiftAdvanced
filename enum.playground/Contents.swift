@@ -13,7 +13,7 @@ let current = ControllerState.error
 //Определение значения объекта
 switch current {
 case .error:
-    print()
+    print(123)
 default:
     print("error")
 }
