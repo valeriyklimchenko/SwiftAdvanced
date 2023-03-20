@@ -1,4 +1,28 @@
-////Value type
+//Объявление
+
+struct SomeStruct {
+    var height = 0
+}
+
+class SomeClass {
+    var options = SomeStruct()
+}
+
+
+//Экземпляры
+let classInstance = SomeClass()
+let structInstance = SomeStruct()
+
+//Доступ к свойствам. Точечный синтаксис
+classInstance.options.height = 2
+var n = classInstance.options.height
+print(n)
+
+SomeClass().options.height
+SomeStruct().height
+classInstance.options.height
+
+//Value type
 //struct HomeWork {
 //   var result: String
 //}
