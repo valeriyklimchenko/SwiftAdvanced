@@ -13,7 +13,7 @@ let current = ControllerState.error
 //Определение значения объекта
 switch current {
 case .error:
-    print(123)
+    print("")
 default:
     print("error")
 }
@@ -46,15 +46,26 @@ enum Item {
 }
 
 var armor = Item.shield(def: 13, radius: 5)
+print(Item.sword(damage: 1, radius: 1))
 
 //Извлечение значени свойств из кейса экземпляра перечисления
-if case let Item.shield(def, radius) = armor {
-    print(def)
-    print(radius)
+//if case let Item.shield(def, radius) = armor {
+//    print(def)
+//    print(radius)
+//}
+
+//Извлечение с помощью extention
+extension Item {
+    var radius: Int {
+        switch self {
+        case .sword(_, let radius),
+                .shield(_, let radius):
+            return(radius)
+        }
+    }
 }
-
-
-
+//print(Item.sword(damage: 1, radius: 1))
+print(armor.radius)
 //
 //enum PaymentMetod {
 //    case cash
