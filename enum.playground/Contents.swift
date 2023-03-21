@@ -40,14 +40,21 @@ var inna = Exemple.exemple
 
 //Associative value - значения внутри кейсов
 // - значения, ассоциированные с этим кейсом (параметры кейса)
-//enum Item {
-//    case sword(Int, Int)
-//    case shield(Double, Int)
-//}
-//
-//var armor = Item.shield(5, 3)
-//
-//
+enum Item {
+    case sword(damage: Int, radius: Int)
+    case shield(def: Double, radius: Int)
+}
+
+var armor = Item.shield(def: 13, radius: 5)
+
+//Извлечение значени свойств из кейса экземпляра перечисления
+if case let Item.shield(def, radius) = armor {
+    print(def)
+    print(radius)
+}
+
+
+
 //
 //enum PaymentMetod {
 //    case cash
