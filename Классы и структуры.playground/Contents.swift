@@ -59,14 +59,14 @@ print(annaReferenceTipeTask.answer.task) //"Dont do it"
 print(dimaReferenceTipeTask.answer.task) //"Dont do it"
 
 //Мутация
-struct HomeWork {
+struct HomeWork1 {
     var result: String
     mutating func thinkAgain() {
         self.result = "New answer"
     }
 }
 
-var annaTask = HomeWork(result: "1")
+var annaTask = HomeWork1(result: "1")
 var dimaTask = annaTask
 
 print(annaTask.result) //1
@@ -82,3 +82,39 @@ dimaTask.thinkAgain()
 print(annaTask.result) //2
 print(dimaTask.result) //New answer
 
+
+
+//Усов
+
+struct Players {
+    var name = "player"
+    var wins = 0
+}
+
+var ivan = Players(name: "Ivan", wins: 3)
+var player = Players()
+print(ivan, player)
+
+
+class First {
+    var first: Int
+    init(first: Int) {
+        self.first = first
+    }
+}
+
+class Second: First {
+    
+}
+
+class Third: Second {
+    
+}
+
+var copyFirst = First(first: 1).first
+print(copyFirst)
+
+var copySecond = Second(first: 2).first
+print(copySecond)
+
+var copyThird = Third(first: 3).first
