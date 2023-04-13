@@ -96,8 +96,8 @@ enum Name: String {
 }
 
 let name = Name.dima
-//print(name)
-//print(name.rawValue)
+print(name)
+print(name.rawValue)
 
 let item = Name(rawValue: "Dima")
 //print(item)  //Expression implicitly coerced from 'Name?' to 'Any'

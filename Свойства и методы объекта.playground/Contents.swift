@@ -1,5 +1,5 @@
 import Foundation
-
+//Геттеры и сеттеры вычисляемых свойств
 class Circle {
     
     var radius: Double
@@ -38,10 +38,42 @@ var memory: String {
 
 
 
+let firstName = "Ivan"
+let surName = "Petrov"
+var fullName = firstName + " " + surName
+
+struct Profile {
+    
+    var firstName = "Ivan"
+    let surName = "Petrov"
+    
+//    let fullName = firstName + " " + surName  //property initializers run before 'self' is available
+    
+//    let fullName: String
+//    init() {
+//        self.fullName = firstName + " " + surName
+//    }
+    
+    var fullName: String { firstName + " " + surName }
+        
+//    init(fullName: String) {
+//        self.fullName = fullName
+    
+//    var n = fullName
+//    print(Profile.fullName)
+    
+}
+
+Profile().fullName
+
+
+
+//Наблюдатели свойств
 var powerOn: Bool = false {
     willSet {
         if newValue {
             print("loading")
+            print(newValue)
             sleep(1)
             print("ready")
             sleep(1)
@@ -52,6 +84,7 @@ var powerOn: Bool = false {
     }
     didSet {
         if powerOn {
+            print(oldValue)
             print("runOS")
         } else {
             print("goodby")
@@ -61,6 +94,44 @@ var powerOn: Bool = false {
 //powerOn = false
 //powerOn = true
 //powerOn = false
+
+
+
+struct FullName {
+    
+    var firstName = "Ivan"
+    var surname = "Petrov" {
+        willSet {
+            print(newValue)
+        }
+        didSet {
+            print(oldValue)
+        }
+    }
+    
+}
+
+var fullName1 = FullName()
+fullName1.firstName = "Petr"
+//fullName1.surname = "Ivanov"
+
+
+
+//Методы классов
+class Metod {
+    func summ(a: Int, b: Int) -> Int {
+        a + b
+    }
+    class func multiplied (a: Int, b: Int) -> Int {
+        a * b
+    }
+}
+
+var instanseMetod = Metod().summ(a: 3, b: 3)
+var classMetod = Metod.multiplied(a: 3, b: 3)
+//print(instanseMetod)
+//print(classMetod)
+
 
 
 //Generics

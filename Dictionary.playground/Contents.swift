@@ -36,7 +36,7 @@ for (key, value) in englRusDictionarty {
 
 englRusDictionarty.forEach{(key, value) in}
 
-//Перебор ключкй и значений отдельно
+//Перебор ключей и значений отдельно
 for key in englRusDictionarty.keys {
     key}
 
